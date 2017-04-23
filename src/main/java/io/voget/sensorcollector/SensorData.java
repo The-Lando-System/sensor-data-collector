@@ -5,9 +5,8 @@ import java.util.Date;
 public class SensorData {
 	
 	private String sensorName;
-	
-	private Date timestamp;
 	private String sensorValue;
+	private Date timestamp;
 	
 	public String getSensorName() {
 		return sensorName;
@@ -17,20 +16,20 @@ public class SensorData {
 		this.sensorName = sensorName;
 	}
 	
-	public Date getTimestamp() {
-		return timestamp;
-	}
-	
-	public void setTimestamp(Date timestamp) {
-		this.timestamp = timestamp;
-	}
-	
 	public String getSensorValue() {
 		return sensorValue;
 	}
 	
 	public void setSensorValue(String sensorValue) {
 		this.sensorValue = sensorValue;
+	}
+	
+	public Date getTimestamp() {
+		return timestamp;
+	}
+	
+	public void setTimestamp(Date timestamp) {
+		this.timestamp = timestamp;
 	}
 
 }
