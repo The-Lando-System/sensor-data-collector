@@ -1,5 +1,6 @@
 #!/usr/bin/python
 
+import math
 import time
 import json
 import requests
@@ -29,42 +30,44 @@ def postToWebsite(sensorVal):
   headers = {'Content-type': 'application/json'}
 
   if (args.url == 'test'):
-    print 'Post Data:'
-    print postData
+    print('Post Data:')
+    print(postData)
     sys.stdout.flush()
   else:
     try:
-      print 'POST ' + args.url
-      print 'Headers:'
-      print headers
-      print 'Post Data:'
-      print postData
+      print('=======================')
+      print('POST ' + args.url)
+      print('Headers:')
+      print(headers)
+      print('Post Data:')
+      print(postData)
       sys.stdout.flush()
 
       r = requests.post(args.url,data=postData,headers=headers)
       
     except requests.exceptions.RequestException as e:
-      print 'Post Error!'
-      print e
+      print('Post Error!')
+      print(e)
       sys.stdout.flush()
       sys.exit(1)
   return
 
-def generateTestData():
-  return randint(0,10);
+def generateTestData(i):
+  return math.cos(i)
 
 
 #################### MAIN ##########################
 
 if (args.test == 'true'):
-  print '#### TEST MODE ####'
+  print('#### TEST MODE ####')
   sys.stdout.flush()
 
+i = 0
 
 while True:
   if (args.test == 'true'):
-      postToWebsite(generateTestData())
+      postToWebsite(generateTestData(i))
   else:
-      postToWebsite(generateTestData())
-  
+      postToWebsite(generateTestData(i))
+  i = i + 0.39269908169
   time.sleep(args.freq)
